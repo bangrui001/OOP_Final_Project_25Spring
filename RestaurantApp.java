@@ -303,6 +303,7 @@ public class RestaurantApp {
 		System.out.println("");
 
         int ans;
+		// use do while loop to keep asking the user for input until they choose to exit
         do {
             System.out.println("If you are an Admin, Enter 1");
             System.out.println("If you are a Customer, Enter 2");
@@ -310,20 +311,20 @@ public class RestaurantApp {
             ans = input.nextInt();
 
             if (ans == 1) {
-                handleAdmin(directory, input);
+                AdminCondintion(directory, input);
             } else if (ans == 2) {
-                handleCustomer(directory, input);
+                CustomerCondition(directory, input);
             } else if (ans != 3) {
-                System.out.println("Please enter a Valid Number for your answer!");
+                System.out.println("Please enter a Valid Number for your answer.");
             }
 
         } while (ans != 3);
 
-        System.out.println("Thank you for using our Food Ordering System!");
-        System.out.println("Hope you have a great day!");
+        System.out.println("Thank you for using our Restaurant System!");
+        System.out.println("Have a great day!");
     }
 
-    private static void handleAdmin(SystemDirectory directory, Scanner input) {
+    private static void AdminCondintion(SystemDirectory directory, Scanner input) {
         input.nextLine();
         System.out.println("Hi, Dear Admin");
         System.out.println("The default UserName for Admin user is Admin");
@@ -339,9 +340,10 @@ public class RestaurantApp {
                 System.out.println("Type 3 to Exit");
                 num = input.nextInt();
 
+				// use switch case to handle the admin menu
                 switch (num) {
-                    case 1 -> handleAdminFood(admin1, input);
-                    case 2 -> handleAdminSeat(admin1, input);
+                    case 1 -> AdminFoodCondition(admin1, input);
+                    case 2 -> AdminSeatCondition(admin1, input);
                     case 3 -> System.out.println("Exiting Admin Mode...");
                     default -> System.out.println("Your input number is invalid, please try again.");
                 }
@@ -351,7 +353,7 @@ public class RestaurantApp {
         }
     }
 
-    private static void handleAdminFood(Admin admin1, Scanner input) {
+    private static void AdminFoodCondition(Admin admin1, Scanner input) {
         int choice;
         do {
             admin1.manageFoodMenu();
@@ -372,7 +374,7 @@ public class RestaurantApp {
         } while (choice != 8);
     }
 
-    private static void handleAdminSeat(Admin admin1, Scanner input) {
+    private static void AdminSeatCondition(Admin admin1, Scanner input) {
         int choice;
         do {
             admin1.manageSeatMenu();
@@ -388,7 +390,7 @@ public class RestaurantApp {
         } while (choice != 3);
     }
 
-    private static void handleCustomer(SystemDirectory directory, Scanner input) {
+    private static void CustomerCondition(SystemDirectory directory, Scanner input) {
         input.nextLine();
         System.out.println("Hi, Dear Customer!");
         System.out.println("Please enter your User Name: ");
@@ -421,8 +423,8 @@ public class RestaurantApp {
                 choice = input.nextInt();
 
                 switch (choice) {
-                    case 1 -> handleCustomerFood(customer1, input);
-                    case 2 -> handleCustomerSeat(customer1, input);
+                    case 1 -> CustomerFoodCondition(customer1, input);
+                    case 2 -> CustomerSeatCondition(customer1, input);
                     case 3 -> System.out.println("Exiting customer mode...");
                     default -> System.out.println("Invalid input number!");
                 }
@@ -432,7 +434,7 @@ public class RestaurantApp {
         }
     }
 
-    private static void handleCustomerFood(Customer customer, Scanner input) {
+    private static void CustomerFoodCondition(Customer customer, Scanner input) {
         int food_choice;
         do {
             customer.printCustomerFoodMenu();
@@ -451,7 +453,7 @@ public class RestaurantApp {
         } while (food_choice != 6);
     }
 
-    private static void handleCustomerSeat(Customer customer, Scanner input) {
+    private static void CustomerSeatCondition(Customer customer, Scanner input) {
         int seat_choice;
         do {
             customer.printCustomerSeatMenu();
@@ -494,7 +496,7 @@ public class RestaurantApp {
 			seatList.add(new Seat("S" + i, capacity));
 		}
     }
-	
+
 	//method to add a food entry
 	protected static int addEntry(FoodEntry entry){
 		if(entry.isValid()) {
