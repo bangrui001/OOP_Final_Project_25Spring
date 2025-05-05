@@ -11,7 +11,6 @@ interface UserInterface{
 }
 
 
-
 public class User implements UserInterface{
 	
 	protected String phone;
@@ -69,7 +68,7 @@ public class User implements UserInterface{
 
 
 	public void viewFoodMenu() {
-		System.out.println("Display information of all Food Menu Items: ");
+		System.out.println("Display information of all Food Menu Items: \n");
 		directory.printAllFoodItems();
 		
 	}

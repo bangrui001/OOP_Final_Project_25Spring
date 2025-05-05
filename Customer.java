@@ -27,7 +27,7 @@ public class Customer extends User implements customerInterface{
 	}
 	
 	    
-	public void printCustomerMenu() {
+	public void printCustomerFoodMenu() {
 		System.out.println("1. View all Food Menu items ");
 		System.out.println("2. Order a food item");
 		System.out.println("3. Cancel a food item");
@@ -35,7 +35,13 @@ public class Customer extends User implements customerInterface{
 		System.out.println("5. Calculate the Total Price of my Order");
 		System.out.println("6. Exit");	
 	}
-	
+
+	public void printCustomerSeatMenu(){
+		System.out.println("1. Book a Seat");
+		System.out.println("2. Cancel a Seat");
+		System.out.println("3. View my Reservations");
+		System.out.println("4. Exit");
+	}
 	
 	public static void createProfile() {
 		System.out.println("You are creating a New User profile now");
@@ -140,7 +146,57 @@ public class Customer extends User implements customerInterface{
 		}
 		return false;
 	}
+
+	// method for customer to book a seat
+	public void bookSeat() {
+		Scanner input = new Scanner(System.in);
+		System.out.println("Enter party size (number of people): ");
+		int partySize = input.nextInt();
+		if (partySize > 6) {
+			System.out.println("Sorry, we do not have seats available for more than 6 people.");
+			return;
+		}
+		input.nextLine();
+		System.out.println("Enter reservation hour (e.g. 18 for 6 PM): ");
+		String hour = input.nextLine();
+		directory.printAvailableSeats(hour, partySize);
 	
-
-
+		System.out.println("Enter Seat ID to reserve: ");
+		String seatId = input.nextLine();
+		boolean success = directory.reserveSeat(this.username, seatId, hour);
+		if (success) {
+			System.out.println("Seat reserved successfully.");
+		} else {
+			System.out.println("Failed to reserve seat.");
+		}
+	}
+	
+	public void cancelSeat() {
+		Scanner input = new Scanner(System.in);
+		System.out.println("Enter Seat ID to cancel: ");
+		String seatId = input.nextLine();
+		System.out.println("Enter the reservation hour (e.g. 18 for 6 PM): ");
+		String hour = input.nextLine();
+		boolean success = directory.cancelSeat(seatId, this.username, hour);
+		if (success) {
+			System.out.println("Seat reservation cancelled.");
+		} else {
+			System.out.println("Failed to cancel reservation.");
+		}
+	}
+	
+	public void viewMyReservations() {
+		int count = 0;
+		for (Seat seat : RestaurantApp.seatList) {
+			for (SeatReservation res : seat.getReservations()) {
+				if (res.getCustomerName().equalsIgnoreCase(this.username)) {
+					System.out.println("Seat " + seat.getSeatId() + " at " + res.getHour()+ ":00");
+					count++;
+				}
+			}
+		}
+		if (count == 0) {
+			System.out.println("No reservations found for " + this.username);
+		}
+	}
 }
