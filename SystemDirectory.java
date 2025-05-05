@@ -1,11 +1,8 @@
-
 import java.io.*;
 import java.util.*;
 
 public class SystemDirectory {
 	
-	
-
 	//constructor of the class SystemDirectory
 	public SystemDirectory() {
 	  
@@ -105,7 +102,6 @@ public class SystemDirectory {
 	}
 		
 	
-	
 
 	//edit a food Item Except for foodId and foodName
 	//if the FoodEntry does not exist, return 0;
@@ -174,7 +170,6 @@ public class SystemDirectory {
 		return 0;
 	}
 	
-	
 	//locate the customer from the customer list by its userName 
 	protected Customer locateCustomer(String userName) {
 		for(int i=0;i<RestaurantApp.customerList.size(); i++) {
@@ -187,5 +182,48 @@ public class SystemDirectory {
 	 }
 		return null;
 	}
-}
+
+	protected Seat findSeatById(String id) {
+        for (Seat seat : RestaurantApp.seatList) {
+            if (seat.getSeatId().equalsIgnoreCase(id)) {
+                return seat;
+            }
+        }
+        return null;
+    }
+
+    protected void printAllSeats() {
+        for (Seat seat : RestaurantApp.seatList) {
+            System.out.println("Seat: " + seat.getSeatId() + ", Capacity: " + seat.getCapacity() +
+            ", Reservable: " + seat.isReservable());
+        }
+    }
+
+	protected void printAvailableSeats(String hour, int partySize) {
+		System.out.println("Available seats for " + partySize + " people at " + hour + ":00:");
+		for (Seat seat : RestaurantApp.seatList) {
+			// filter by capacity and availability to get the available seats
+			if (seat.isReservable() && seat.getCapacity() >= partySize && seat.isAvailableAt(hour)) {
+				System.out.println(" - Seat " + seat.getSeatId() + " (Capacity: " + seat.getCapacity() + ")");
+			}
+		}
+	}
 	
+	protected boolean reserveSeat(String customerName, String seatId, String hour) {
+		Seat seat = findSeatById(seatId);
+		if (seat != null && seat.isAvailableAt(hour)) {
+			seat.addReservation(new SeatReservation(customerName, hour));
+			return true;
+		}
+		return false;
+	}
+	
+	protected boolean cancelSeat(String seatId, String customerName, String hour) {
+		Seat seat = findSeatById(seatId);
+		if (seat != null) {
+			return seat.removeReservation(customerName, hour);
+		}
+		return false;
+	}
+	
+}
