@@ -170,19 +170,6 @@ public class SystemDirectory {
 		return 0;
 	}
 	
-	//locate the customer from the customer list by its userName 
-	protected Customer locateCustomer(String userName) {
-		for(int i=0;i<RestaurantApp.customerList.size(); i++) {
-			if(RestaurantApp.customerList.get(i).isValid()) {
-				Customer stu = RestaurantApp.customerList.get(i);
-				if(stu.sameUserName(userName)) {
-					return stu;
-				}
-		}
-	 }
-		return null;
-	}
-
 	protected Seat findSeatById(String id) {
         for (Seat seat : RestaurantApp.seatList) {
             if (seat.getSeatId().equalsIgnoreCase(id)) {

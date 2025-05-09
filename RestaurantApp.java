@@ -10,7 +10,6 @@ public class RestaurantApp {
     public static void main(String args[]) {
         initializeFoodMenu();
         initializeSeats();
-        SystemDirectory directory = new SystemDirectory();
         Scanner input = new Scanner(System.in);
 		System.out.println("=================================================================");
         System.out.println("Welcome to Use the Restaurant Order and Seats Booking System!");
@@ -26,9 +25,9 @@ public class RestaurantApp {
             ans = input.nextInt();
 
             if (ans == 1) {
-                AdminCondintion(directory, input);
+                AdminCondintion(input);
             } else if (ans == 2) {
-                CustomerCondition(directory, input);
+                CustomerCondition(input);
             } else if (ans != 3) {
                 System.out.println("Please enter a Valid Number for your answer.");
             }
@@ -39,7 +38,7 @@ public class RestaurantApp {
         System.out.println("Have a great day!");
     }
 
-    private static void AdminCondintion(SystemDirectory directory, Scanner input) {
+    private static void AdminCondintion(Scanner input) {
         input.nextLine();
         System.out.println("Hi, Dear Admin");
         System.out.println("The default UserName for Admin user is Admin");
@@ -105,13 +104,13 @@ public class RestaurantApp {
         } while (choice != 3);
     }
 
-    private static void CustomerCondition(SystemDirectory directory, Scanner input) {
+    private static void CustomerCondition(Scanner input) {
         input.nextLine();
         System.out.println("Hi, Dear Customer!");
         System.out.println("Please enter your User Name: ");
         String username = input.nextLine();
 
-        Customer customer1 = directory.locateCustomer(username);
+        Customer customer1 = locateCustomer(username);
         if (customer1 == null) {
             System.out.println("Sorry we don't find your input User Name in our System");
             System.out.println("Do you want to create a New Profile: ");
@@ -211,6 +210,19 @@ public class RestaurantApp {
 			seatList.add(new Seat("S" + i, capacity));
 		}
     }
+
+    //locate the customer from the customer list by its userName 
+	private static Customer locateCustomer(String userName) {
+		for(int i=0;i<RestaurantApp.customerList.size(); i++) {
+			if(RestaurantApp.customerList.get(i).isValid()) {
+				Customer stu = RestaurantApp.customerList.get(i);
+				if(stu.sameUserName(userName)) {
+					return stu;
+				}
+		}
+	 }
+		return null;
+	}
 
 	//method to add a food entry
 	protected static int addEntry(FoodEntry entry){
