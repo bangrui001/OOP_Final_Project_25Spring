@@ -45,8 +45,8 @@ public class Customer extends User implements customerInterface{
 
 	public void printCustomerSeatMenu(){
 		System.out.println();
-		System.out.println("1. Book a Seat");
-		System.out.println("2. Cancel a Seat");
+		System.out.println("1. Book a Table");
+		System.out.println("2. Cancel a Table");
 		System.out.println("3. View my Reservations");
 		System.out.println("4. Exit");
 	}
@@ -166,7 +166,7 @@ public class Customer extends User implements customerInterface{
 		System.out.println("Enter party size (number of people): ");
 		int partySize = input.nextInt();
 		if (partySize > 6) {
-			System.out.println("Sorry, we do not have seats available for more than 6 people.");
+			System.out.println("Sorry, we do not have tables available for more than 6 people.");
 			return;
 		}
 		input.nextLine();
@@ -174,7 +174,7 @@ public class Customer extends User implements customerInterface{
 		String hour = input.nextLine();
 		directory.printAvailableSeats(hour, partySize);
 	
-		System.out.println("Enter Seat ID to reserve: ");
+		System.out.println("Enter Table ID to reserve: ");
 		String seatId = input.nextLine();
 		boolean success = directory.reserveSeat(this.username, seatId, hour);
 		// if the reservation is successful, add the seat to mySeat list
@@ -184,22 +184,22 @@ public class Customer extends User implements customerInterface{
 		Seat seat = directory.findSeatById(seatId);
 
 		if (success) {
-			System.out.println("Seat reserved successfully.");
+			System.out.println("Table reserved successfully.");
 		} else {
-			System.out.println("Failed to reserve seat.");
+			System.out.println("Failed to reserve the Table.");
 		}
 	}
 	
 	public void cancelSeat() {
 		System.out.println();
 		Scanner input = new Scanner(System.in);
-		System.out.println("Enter Seat ID to cancel: ");
+		System.out.println("Enter Table ID to cancel: ");
 		String seatId = input.nextLine();
 		System.out.println("Enter the reservation hour (e.g. 18 for 6 PM): ");
 		String hour = input.nextLine();
 		boolean success = directory.cancelSeat(seatId, this.username, hour);
 		if (success) {
-			System.out.println("Seat reservation cancelled.");
+			System.out.println("Table reservation cancelled.");
 		} else {
 			System.out.println("Failed to cancel reservation.");
 		}
@@ -211,7 +211,7 @@ public class Customer extends User implements customerInterface{
 		for (Seat seat : RestaurantApp.seatList) {
 			for (SeatReservation res : seat.getReservations()) {
 				if (res.getCustomerName().equalsIgnoreCase(this.username)) {
-					System.out.println("Seat " + seat.getSeatId() + " at " + res.getHour()+ ":00");
+					System.out.println("Table " + seat.getSeatId() + " at " + res.getHour()+ ":00");
 					count++;
 				}
 			}

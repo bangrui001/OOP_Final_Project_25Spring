@@ -208,7 +208,7 @@ public class RestaurantApp {
 			} else {
 				capacity = 6;
 			}
-			seatList.add(new Seat("S" + i, capacity));
+			seatList.add(new Seat("T" + i, capacity));
 		}
     }
 
