@@ -1,4 +1,5 @@
 
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -19,7 +20,8 @@ public class Customer extends User implements customerInterface{
 	
 	// my Order include all the Food Item that user ordered
 	ArrayList<FoodEntry> myOrder = new ArrayList<>();
-	
+	ArrayList<Seat> mySeat = new ArrayList<>();
+
 	Customer(String username, String phone, String email){
 		super(username, phone, email);
 		
@@ -167,6 +169,12 @@ public class Customer extends User implements customerInterface{
 		System.out.println("Enter Seat ID to reserve: ");
 		String seatId = input.nextLine();
 		boolean success = directory.reserveSeat(this.username, seatId, hour);
+		// if the reservation is successful, add the seat to mySeat list
+		if (mySeat == null) {
+			mySeat = new ArrayList<Seat>();
+		}
+		Seat seat = directory.findSeatById(seatId);
+		
 		if (success) {
 			System.out.println("Seat reserved successfully.");
 		} else {
