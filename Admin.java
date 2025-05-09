@@ -29,6 +29,7 @@ public class Admin extends User implements AdminInterface{
 	}
 	
 	public void manageFoodMenu() {
+		System.out.println();
 		System.out.println("1. Add a new Food Item to the Menu");
 		System.out.println("2. Delete a Food Item from the Menu");
 		System.out.println("3. Edit a Food Item on the Menu");
@@ -40,12 +41,14 @@ public class Admin extends User implements AdminInterface{
 	}
 	
 	public void manageSeatMenu(){
+		System.out.println();
 		System.out.println("1. View all Seat Reservations");
 		System.out.println("2. Change Seat Availability");
 		System.out.println("3. Exit");
 	}
 
 	public void addMenuItem(){
+		System.out.println();
 		Scanner input = new Scanner(System.in);
 		System.out.println("Please enter the Food Name you want to create: ");
 		String foodName = input.nextLine();
@@ -69,6 +72,7 @@ public class Admin extends User implements AdminInterface{
 	
 	
 	public void deleteMenuItem() {
+		System.out.println();
 		Scanner input = new Scanner(System.in);
 		System.out.println("Please enter the Food Name: ");
 		String fName = input.nextLine();
@@ -82,6 +86,7 @@ public class Admin extends User implements AdminInterface{
 	}
 	
 	public void editMenuItem() {
+		System.out.println();
 		Scanner input = new Scanner(System.in);
 		System.out.println("Please enter the Food Name: ");
 		String foodName = input.nextLine();
@@ -95,6 +100,7 @@ public class Admin extends User implements AdminInterface{
 	
 	//Display the information of a give Food Item
 	public void displayInfo() {
+		System.out.println();
 		Scanner input = new Scanner(System.in);
 		System.out.println("Please enter the Food Item Id: ");
 		String id = input.nextLine();
@@ -103,6 +109,7 @@ public class Admin extends User implements AdminInterface{
 	}
 	
 	public void viewOrderedFoods() {
+		System.out.println();
 		Scanner input = new Scanner(System.in);
 		System.out.println("Please enter the Customer's User name: ");
 		String un = input.next();
@@ -122,7 +129,7 @@ public class Admin extends User implements AdminInterface{
 	
 	//view the names of all customers that all ordered a given Food item
 	public void viewFoodItemNameList() {
-		
+		System.out.println();
 		Scanner input = new Scanner(System.in);
 		System.out.println("Please enter the Food name: ");
 		String fName = input.nextLine();
@@ -131,15 +138,18 @@ public class Admin extends User implements AdminInterface{
 
 	// Seats related methods for Admin
 	public void viewSeatReservations() {
+		System.out.println();
 		for (Seat seat : RestaurantApp.seatList) {
 			if (seat.isEmptyReservationsList()) {
 				continue;
 			}
 			seat.printReservations();
+			System.out.println();
 		}
 	}
 	
 	public void changeSeatAvailability() {
+		System.out.println();
 		Scanner input = new Scanner(System.in);
 		System.out.println("Enter Seat ID to change availability:");
 		String seatId = input.nextLine();
