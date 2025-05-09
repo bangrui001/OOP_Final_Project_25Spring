@@ -9,6 +9,9 @@ interface customerInterface{
 	public void cancelFood();
 	public void viewOrderedFoods();
 	public void getTotalOrderPrice();
+	public void bookSeat();
+	public void cancelSeat();
+	public void viewMyReservations();
 	
 }
 public class Customer extends User implements customerInterface{

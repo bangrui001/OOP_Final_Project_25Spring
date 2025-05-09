@@ -10,6 +10,8 @@ interface AdminInterface{
 	public void viewFoodMenu();
 	public void viewOrderedFoods();
 	public void viewFoodItemNameList();
+	public void viewSeatReservations();
+	public void changeSeatAvailability();
 	
 }
 

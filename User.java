@@ -76,7 +76,7 @@ public class User implements UserInterface{
 	
 	
     public void viewOrderedFoods() {
-			
+			// implementation of this method is in the Admin and customer class
 			}
 
     
