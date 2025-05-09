@@ -1,5 +1,5 @@
-
 import java.util.ArrayList;
+import java.util.Scanner;
 
 
 interface UserInterface{
@@ -7,6 +7,7 @@ interface UserInterface{
 	public void viewOrderedFoods();
 	public boolean isValid();
 	public boolean sameUserName(String un);
+	public void displayInfo();
 	
 }
 
@@ -79,7 +80,16 @@ public class User implements UserInterface{
 			// implementation of this method is in the Admin and customer class
 			}
 
-    
+    //Display the information of a give Food Item
+	public void displayInfo() {
+		System.out.println();
+		Scanner input = new Scanner(System.in);
+		System.out.println("Please enter the Food Item Id: ");
+		String id = input.nextLine();
+		directory.displayFoodItem(id);
+	
+	}
+
     public boolean isValid() {
     	if(username != null) {
     		return true;
@@ -93,5 +103,6 @@ public class User implements UserInterface{
     		return true;
     	}
     	return false;
-    }				
+    }		
+			
 }
