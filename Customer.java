@@ -33,6 +33,7 @@ public class Customer extends User implements customerInterface{
 	
 	    
 	public void printCustomerFoodMenu() {
+		System.out.println();
 		System.out.println("1. View all Food Menu items ");
 		System.out.println("2. Order a food item");
 		System.out.println("3. Cancel a food item");
@@ -42,6 +43,7 @@ public class Customer extends User implements customerInterface{
 	}
 
 	public void printCustomerSeatMenu(){
+		System.out.println();
 		System.out.println("1. Book a Seat");
 		System.out.println("2. Cancel a Seat");
 		System.out.println("3. View my Reservations");
@@ -49,6 +51,7 @@ public class Customer extends User implements customerInterface{
 	}
 	
 	public static void createProfile() {
+		System.out.println();
 		System.out.println("You are creating a New User profile now");
 		Scanner input = new Scanner(System.in);
 		System.out.println("Please Enter your User Name: ");
@@ -64,6 +67,7 @@ public class Customer extends User implements customerInterface{
 
 	
 	public void orderFood() {
+		System.out.println();
 		Scanner input = new Scanner(System.in);
 		System.out.println("Please enter the Food Item name you want to order: ");
 		String fName = input.nextLine();
@@ -87,7 +91,7 @@ public class Customer extends User implements customerInterface{
 
 	// cancel a Food Item from the customer's order. check by customer name and food name
 	public void cancelFood() {
-		
+		System.out.println();
 		Scanner input = new Scanner(System.in);
 		
 		System.out.println("Please enter the Food Item name you want to cancel: ");
@@ -108,6 +112,7 @@ public class Customer extends User implements customerInterface{
 	}
 	
 	public void viewOrderedFoods() {
+		System.out.println();
 		if(myOrder == null) {
 			myOrder = new ArrayList<FoodEntry>();
 		}
@@ -121,6 +126,7 @@ public class Customer extends User implements customerInterface{
 	}
 	
 	public void getTotalOrderPrice() {
+		System.out.println();
 	    double total = 0.00;
 	    for (FoodEntry item : myOrder) {
 	        total += item.getPrice();
@@ -154,6 +160,7 @@ public class Customer extends User implements customerInterface{
 
 	// method for customer to book a seat
 	public void bookSeat() {
+		System.out.println();
 		Scanner input = new Scanner(System.in);
 		System.out.println("Enter party size (number of people): ");
 		int partySize = input.nextInt();
@@ -174,7 +181,7 @@ public class Customer extends User implements customerInterface{
 			mySeat = new ArrayList<Seat>();
 		}
 		Seat seat = directory.findSeatById(seatId);
-		
+
 		if (success) {
 			System.out.println("Seat reserved successfully.");
 		} else {
@@ -183,6 +190,7 @@ public class Customer extends User implements customerInterface{
 	}
 	
 	public void cancelSeat() {
+		System.out.println();
 		Scanner input = new Scanner(System.in);
 		System.out.println("Enter Seat ID to cancel: ");
 		String seatId = input.nextLine();
@@ -197,6 +205,7 @@ public class Customer extends User implements customerInterface{
 	}
 	
 	public void viewMyReservations() {
+		System.out.println();
 		int count = 0;
 		for (Seat seat : RestaurantApp.seatList) {
 			for (SeatReservation res : seat.getReservations()) {
