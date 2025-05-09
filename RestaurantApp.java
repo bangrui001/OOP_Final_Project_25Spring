@@ -161,10 +161,11 @@ public class RestaurantApp {
                 case 3 -> customer.cancelFood();
                 case 4 -> customer.viewOrderedFoods();
                 case 5 -> customer.getTotalOrderPrice();
-                case 6 -> System.out.println("Exiting food menu mode...");
+                case 6 -> customer.displayInfo();
+                case 7 -> System.out.println("Exiting food menu mode...");
                 default -> System.out.println("Please enter a valid number.");
             }
-        } while (food_choice != 6);
+        } while (food_choice != 7);
     }
 
     private static void CustomerSeatCondition(Customer customer, Scanner input) {
@@ -185,15 +186,15 @@ public class RestaurantApp {
     }
 
     private static void initializeFoodMenu() {
-        foodList.add(new FoodEntry("Cheeseburger", "01", 8.25, "Entree", new ArrayList<>()));
-        foodList.add(new FoodEntry("Sausage Pizza", "02", 11.50, "Entree", new ArrayList<>()));
-        foodList.add(new FoodEntry("Caesar Salad", "03", 6.75, "Appetizer", new ArrayList<>()));
-        foodList.add(new FoodEntry("Chicken Wings", "04", 9.75, "Appetizer", new ArrayList<>()));
-        foodList.add(new FoodEntry("Chocolate Cake", "05", 8.00, "Dessert", new ArrayList<>()));
-        foodList.add(new FoodEntry("Apple Pie", "06", 4.50, "Dessert", new ArrayList<>()));
-        foodList.add(new FoodEntry("Hot Coffee", "07", 3.00, "Beverage", new ArrayList<>()));
-        foodList.add(new FoodEntry("Lobster Roll", "08", 14.75, "Beverage", new ArrayList<>()));
-        foodList.add(new FoodEntry("Grilled Salmon", "09", 23.75, "Entree", new ArrayList<>()));
+        foodList.add(new FoodEntry("Cheeseburger", "1", 8.25, "Entree", new ArrayList<>()));
+        foodList.add(new FoodEntry("Sausage Pizza", "2", 11.50, "Entree", new ArrayList<>()));
+        foodList.add(new FoodEntry("Caesar Salad", "3", 6.75, "Appetizer", new ArrayList<>()));
+        foodList.add(new FoodEntry("Chicken Wings", "4", 9.75, "Appetizer", new ArrayList<>()));
+        foodList.add(new FoodEntry("Chocolate Cake", "5", 8.00, "Dessert", new ArrayList<>()));
+        foodList.add(new FoodEntry("Apple Pie", "6", 4.50, "Dessert", new ArrayList<>()));
+        foodList.add(new FoodEntry("Hot Coffee", "7", 3.00, "Beverage", new ArrayList<>()));
+        foodList.add(new FoodEntry("Lobster Roll", "8", 14.75, "Beverage", new ArrayList<>()));
+        foodList.add(new FoodEntry("Grilled Salmon", "9", 23.75, "Entree", new ArrayList<>()));
         foodList.add(new FoodEntry("Peking Duck", "10", 24.75, "Entree", new ArrayList<>()));
     }
 

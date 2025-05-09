@@ -97,17 +97,7 @@ public class Admin extends User implements AdminInterface{
 			System.out.println("Fail to edit the Food Menu Item");
 		}
 	}
-	
-	//Display the information of a give Food Item
-	public void displayInfo() {
-		System.out.println();
-		Scanner input = new Scanner(System.in);
-		System.out.println("Please enter the Food Item Id: ");
-		String id = input.nextLine();
-		directory.displayFoodItem(id);
-	
-	}
-	
+		
 	public void viewOrderedFoods() {
 		System.out.println();
 		Scanner input = new Scanner(System.in);

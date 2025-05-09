@@ -39,7 +39,8 @@ public class Customer extends User implements customerInterface{
 		System.out.println("3. Cancel a food item");
 		System.out.println("4. View all Food items that current customer ordered");
 		System.out.println("5. Calculate the Total Price of my Order");
-		System.out.println("6. Exit");	
+		System.out.println("6. Display information for a given Food item");
+		System.out.println("7. Exit");	
 	}
 
 	public void printCustomerSeatMenu(){
