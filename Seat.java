@@ -53,7 +53,7 @@ public class Seat {
     }
 
     public void printReservations() {
-        System.out.println("Seat " + seatId + " (Capacity: " + capacity + ") reservations:");
+        System.out.println("Table " + seatId + " (Capacity: " + capacity + ") reservations:");
         for (SeatReservation r : reservations) {
             System.out.println("  - " + r.getHour() + ":00 by " + r.getCustomerName());
         }

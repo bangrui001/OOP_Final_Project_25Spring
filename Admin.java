@@ -42,8 +42,8 @@ public class Admin extends User implements AdminInterface{
 	
 	public void manageSeatMenu(){
 		System.out.println();
-		System.out.println("1. View all Seat Reservations");
-		System.out.println("2. Change Seat Availability");
+		System.out.println("1. View all Table Reservations");
+		System.out.println("2. Change Table Availability");
 		System.out.println("3. Exit");
 	}
 
@@ -141,7 +141,7 @@ public class Admin extends User implements AdminInterface{
 	public void changeSeatAvailability() {
 		System.out.println();
 		Scanner input = new Scanner(System.in);
-		System.out.println("Enter Seat ID to change availability:");
+		System.out.println("Enter Table ID to change availability:");
 		String seatId = input.nextLine();
 		Seat seat = directory.findSeatById(seatId);
 		if (seat != null) {

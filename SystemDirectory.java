@@ -181,17 +181,17 @@ public class SystemDirectory {
 
     protected void printAllSeats() {
         for (Seat seat : RestaurantApp.seatList) {
-            System.out.println("Seat: " + seat.getSeatId() + ", Capacity: " + seat.getCapacity() +
+            System.out.println("Table: " + seat.getSeatId() + ", Capacity: " + seat.getCapacity() +
             ", Reservable: " + seat.isReservable());
         }
     }
 
 	protected void printAvailableSeats(String hour, int partySize) {
-		System.out.println("Available seats for " + partySize + " people at " + hour + ":00:");
+		System.out.println("Available tables for " + partySize + " people at " + hour + ":00:");
 		for (Seat seat : RestaurantApp.seatList) {
 			// filter by capacity and availability to get the available seats
 			if (seat.isReservable() && seat.getCapacity() >= partySize && seat.isAvailableAt(hour)) {
-				System.out.println(" - Seat " + seat.getSeatId() + " (Capacity: " + seat.getCapacity() + ")");
+				System.out.println(" - Table " + seat.getSeatId() + " (Capacity: " + seat.getCapacity() + ")");
 			}
 		}
 	}
