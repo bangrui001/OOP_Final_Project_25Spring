@@ -12,7 +12,11 @@ public class Seat {
         this.isReservable = true;
         this.reservations = new ArrayList<>();
     }
-
+    
+    public boolean isEmptyReservationsList() {
+        return reservations.isEmpty();
+    }
+    
     public String getSeatId() {
         return seatId;
     }

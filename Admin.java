@@ -132,6 +132,9 @@ public class Admin extends User implements AdminInterface{
 	// Seats related methods for Admin
 	public void viewSeatReservations() {
 		for (Seat seat : RestaurantApp.seatList) {
+			if (seat.isEmptyReservationsList()) {
+				continue;
+			}
 			seat.printReservations();
 		}
 	}
