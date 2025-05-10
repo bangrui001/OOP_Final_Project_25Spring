@@ -28,7 +28,7 @@ public class Admin extends User implements AdminInterface{
 		
 	}
 	
-	public void manageFoodMenu() {
+	public void printAdminFoodMenu() {
 		System.out.println();
 		System.out.println("1. Add a new Food Item to the Menu");
 		System.out.println("2. Delete a Food Item from the Menu");
@@ -40,7 +40,7 @@ public class Admin extends User implements AdminInterface{
 		System.out.println("8. Exit");
 	}
 	
-	public void manageSeatMenu(){
+	public void printAdminSeatMenu(){
 		System.out.println();
 		System.out.println("1. View all Table Reservations");
 		System.out.println("2. Change Table Availability");

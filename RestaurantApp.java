@@ -70,7 +70,7 @@ public class RestaurantApp {
     private static void AdminFoodCondition(Admin admin1, Scanner input) {
         int choice;
         do {
-            admin1.manageFoodMenu();
+            admin1.printAdminFoodMenu();
             System.out.println("Please enter the number of your choice: ");
             choice = input.nextInt();
 
@@ -91,7 +91,7 @@ public class RestaurantApp {
     private static void AdminSeatCondition(Admin admin1, Scanner input) {
         int choice;
         do {
-            admin1.manageSeatMenu();
+            admin1.printAdminSeatMenu();
             System.out.println("Please enter the number of your choice: ");
             choice = input.nextInt();
 
