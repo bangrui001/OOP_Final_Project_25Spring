@@ -78,3 +78,6 @@ All operations are performed **in-memory** using `ArrayList` structures.
 - The reservation system is **designed for same-day use only**. Customers and Admins can only make or view reservations for the current day. **Advance reservations (e.g., for tomorrow) are not supported.**
 - Each table can be reserved for **1-hour time slots** starting only at whole-hour marks (e.g., 18:00, 19:00), and the User should enter integer to indicate time like 18 for 6:00 PM.
 - **Table IDs start with the letter `T`** (e.g., `T5`). Both Admin and Customer must input the correct table ID format when making or managing reservations.
+
+**Team Member:** Bangrui Yan (by2102@nyu.edu) Yaoge Hu (yh3920@nyu.edu) YiCi Zhang (yz7656@nyu.edu)
+**Node:** We do our project in person so the GitHub commit history may not reflect our individual contribution for this project, expecially in the UML diagram.
