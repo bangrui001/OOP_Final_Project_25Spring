@@ -81,4 +81,4 @@ All operations are performed **in-memory** using `ArrayList` structures.
 
 **Team Member:** Bangrui Yan (by2102@nyu.edu) Yaoge Hu (yh3920@nyu.edu) YiCi Zhang (yz7656@nyu.edu)
 
-**Note:** We do our project in person so the GitHub commit history may not reflect our individual contribution for this project, expecially in the UML diagram.
+**Note:** We do our project in person, so the GitHub commit history may not reflect our individual contribution for this project, expecially in the UML diagram.
