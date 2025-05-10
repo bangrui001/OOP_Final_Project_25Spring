@@ -1,12 +1,13 @@
-# 🍽️ Restaurant Ordering and Seat Booking System
+# Restaurant Ordering and Seat Booking System
 
 A console-based Object-Oriented Java application designed to help restaurants manage food orders and table reservations efficiently. The system supports two types of users—**Admin** and **Customer**—each with tailored functionalities for menu management, food ordering, and seat booking.
 
 ---
 
-## 📌 Features
+## Features
 
-### 👤 Admin Functionalities
+### Admin Functionalities
+
 - Add, delete, and edit food items in the menu.
 - View details of all menu items.
 - View food items ordered by specific customers.
@@ -14,7 +15,8 @@ A console-based Object-Oriented Java application designed to help restaurants ma
 - Manage table availability.
 - View all table reservations.
 
-### 🙋 Customer Functionalities
+### Customer Functionalities
+
 - Create a user profile.
 - View menu and order food items.
 - Cancel food items from orders.
@@ -24,7 +26,7 @@ A console-based Object-Oriented Java application designed to help restaurants ma
 
 ---
 
-## 🧱 System Architecture
+## System Architecture
 
 The system is built following **Object-Oriented Programming (OOP)** principles with the following structure:
 
@@ -34,26 +36,44 @@ The system is built following **Object-Oriented Programming (OOP)** principles w
 - `FoodEntry`, `Seat`, `SeatReservation`: Core domain entities.
 - Interfaces: `UserInterface`, `AdminInterface`, `customerInterface` for role-specific behaviors.
 
-All operations are performed in-memory using `ArrayList` structures.
+All operations are performed **in-memory** using `ArrayList` structures.
 
 ---
 
-## 📋 Class Diagram
+## Class Diagram
 
 ![Class Diagram](./OOP_Final_Project_Class_Diagram.drawio.png)
 
 ---
 
-## 🧾 Use Case Diagram
+## How to Run
 
-![Use Case Diagram](./OOP_Final_Project_Usecase_Diagram.drawio.png)
+1. Clone the repository:
 
-Detailed use case descriptions are available in [`Usecases_Description.docx`](./Usecases_Description.docx).
+   ```bash
+   git clone https://github.com/yourusername/OOP_Final_Project_25Spring.git
+
+2. Compile all .java files:
+
+    ```bash
+    javac *.java
+
+3. Run the application:
+
+    ```bash
+    java RestaurantApp
 
 ---
 
-## ▶️ How to Run
+## Tips About This Project
 
-1. Clone the repository:
-   ```bash
-   git clone https://github.com/yourusername/OOP_Final_Project_25Spring.git
+### Food Ordering System
+
+- The default username for the Admin is **`Admin`** (case-insensitive).
+- The system comes with a **predefined menu of ten dishes**, covering various categories like Entrée, Appetizer, Dessert, and Beverage.
+
+### Table Booking System
+
+- The reservation system is **designed for same-day use only**. Customers and Admins can only make or view reservations for the current day. **Advance reservations (e.g., for tomorrow) are not supported.**
+- Each table can be reserved for **1-hour time slots** starting only at whole-hour marks (e.g., 18:00, 19:00).
+- **Table IDs start with the letter `T`** (e.g., `T5`). Both Admin and Customer must input the correct table ID format when making or managing reservations.
