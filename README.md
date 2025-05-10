@@ -71,9 +71,10 @@ All operations are performed **in-memory** using `ArrayList` structures.
 
 - The default username for the Admin is **`Admin`** (case-insensitive).
 - The system comes with a **predefined menu of ten dishes**, covering various categories like Entrée, Appetizer, Dessert, and Beverage.
+- **Food IDs should be entered as integers** like 5.
 
 ### Table Booking System
 
 - The reservation system is **designed for same-day use only**. Customers and Admins can only make or view reservations for the current day. **Advance reservations (e.g., for tomorrow) are not supported.**
-- Each table can be reserved for **1-hour time slots** starting only at whole-hour marks (e.g., 18:00, 19:00).
+- Each table can be reserved for **1-hour time slots** starting only at whole-hour marks (e.g., 18:00, 19:00), and the User should enter integer to indicate time like 18 for 6:00 PM.
 - **Table IDs start with the letter `T`** (e.g., `T5`). Both Admin and Customer must input the correct table ID format when making or managing reservations.
