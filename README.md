@@ -42,7 +42,7 @@ All operations are performed **in-memory** using `ArrayList` structures.
 
 ## Class Diagram
 
-![Class Diagram](./OOP_Final_Project_Class_Diagram.drawio.png)
+![Class Diagram](UML/OOP_Final_Project_Class_Diagram.drawio.png)
 
 ---
 
