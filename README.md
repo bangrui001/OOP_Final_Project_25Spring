@@ -80,4 +80,5 @@ All operations are performed **in-memory** using `ArrayList` structures.
 - **Table IDs start with the letter `T`** (e.g., `T5`). Both Admin and Customer must input the correct table ID format when making or managing reservations.
 
 **Team Member:** Bangrui Yan (by2102@nyu.edu) Yaoge Hu (yh3920@nyu.edu) YiCi Zhang (yz7656@nyu.edu)
-**Node:** We do our project in person so the GitHub commit history may not reflect our individual contribution for this project, expecially in the UML diagram.
+
+**Note:** We do our project in person so the GitHub commit history may not reflect our individual contribution for this project, expecially in the UML diagram.
